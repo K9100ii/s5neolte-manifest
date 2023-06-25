@@ -19,6 +19,10 @@
   <remove-project name="platform/system/netd" />
   <project name="K9100ii/android_system_netd" path="system/netd" remote="github" revision="lineage-19.1" />  
 
+  <!-- Contains a fix for Bluetooth calls - REQUIRED -->
+  <remove-project name="LineageOS/android_system_bt" />
+  <project name="K9100ii/android_system_bt" path="system/bt" remote="github" revision="lineage-19.1" />
+
   <!-- Contain further patches for restoring support for camera HAL v1 - REQUIRED -->
   <remove-project name="LineageOS/android_system_core" />
   <project name="K9100ii/android_system_core" path="system/core" remote="github" revision="lineage-19.1-ultralegacy" />
