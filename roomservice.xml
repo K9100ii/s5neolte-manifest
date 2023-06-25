@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- FORKS -->
+  <!-- Contains patches for signature spoofing and a possible slight improvement in screen recording quality,
+       and a patch for camera HAL v1 support restoration.
+       REQUIRED for the camera HAL v1 patch, but the other patches can be reverted if not needed, must also
+       remove android_packages_modules_Permission fork if reverted. -->
+  <remove-project name="LineageOS/android_frameworks_base" />
+  <project name="K9100ii/android_frameworks_base" path="frameworks/base" remote="github" revision="lineage-19.1-ultralegacy" />
+
+  <!-- Contains another patch for signature spoofing - Optional if signature spoofing isn't required, must also
+       revert signature spoofing patches in the android_frameworks_base fork if removed. -->
+  <remove-project name="LineageOS/android_packages_modules_Permission" />
+  <project name="K9100ii/android_packages_modules_Permission" path="packages/modules/Permission" remote="github" revision="lineage-19.1" />
+
+  <!-- Contain patches needed since the kernel has no eBPF support - REQUIRED -->
+  <remove-project name="platform/system/bpf" />
+  <project name="K9100ii/android_system_bpf" path="system/bpf" remote="github" revision="android-12L" />
+  <remove-project name="platform/system/netd" />
+  <project name="K9100ii/android_system_netd" path="system/netd" remote="github" revision="lineage-19.1" />  
+
+  <!-- Contain further patches for restoring support for camera HAL v1 - REQUIRED -->
+  <remove-project name="LineageOS/android_system_core" />
+  <project name="K9100ii/android_system_core" path="system/core" remote="github" revision="lineage-19.1-ultralegacy" />
+  <remove-project name="LineageOS/android_frameworks_av" />
+  <project name="K9100ii/android_frameworks_av" path="frameworks/av" remote="github" revision="lineage-19.1-ultralegacy" />
+
+  <!-- Contains a patch for removing kernel version checking for memfd_create() support - REQUIRED -->
+  <remove-project name="platform/art" />
+  <project name="K9100ii/android_art" path="art" remote="github" revision="lineage-19.1-ultralegacy" />
+
+  <!-- Contains a compilation error fix - REQUIRED -->
+  <remove-project name="LineageOS/android_hardware_lineage_interfaces" />
+  <project name="K9100ii/android_hardware_lineage_interfaces" path="hardware/lineage/interfaces" remote="github" revision="lineage-19.1-ultralegacy" />
+
+  <!-- Contains a patch bringing back legacy FunctionFS support for ADB - REQUIRED -->
+  <remove-project name="LineageOS/android_packages_modules_adb" />
+  <project name="K9100ii/android_packages_modules_adb" path="packages/modules/adb" remote="github" revision="lineage-19.1-ultralegacy" />
+  <!-- END OF FORKS -->
+
+  <!-- Open source aptX and aptX HD encoders -->
+  <project name="K9100ii/android_external_aptxenc" path="external/aptxenc" remote="github" revision="android12L" />
+
+  <!-- Device trees -->
+  <project name="K9100ii/android_device_samsung_universal7580-common" path="device/samsung/universal7580-common" remote="github" revision="lineage-19.1" />
+  <project name="K9100ii/android_device_samsung_s5neolte" path="device/samsung/s5neolte" remote="github" revision="lineage-19.1" />
+  <!-- Vendor trees -->
+  <project name="K9100ii/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="lineage-19.1" />
+  <!-- Kernel sources -->
+  <project name="K9100ii/android_kernel_samsung_universal7580" path="kernel/samsung/universal7580" remote="github" revision="lineage-19.1" />
+
+  <!-- Linaro SLSI BSP sources -->
+  <project name="K9100ii/android_hardware_samsung_slsi-linaro_config" path="hardware/samsung_slsi-linaro/config" remote="github" revision="lineage-19.1" />
+  <project name="K9100ii/android_hardware_samsung_slsi-linaro_exynos" path="hardware/samsung_slsi-linaro/exynos" remote="github" revision="lineage-19.1" />
+  <project name="K9100ii/android_hardware_samsung_slsi-linaro_exynos5" path="hardware/samsung_slsi-linaro/exynos5" remote="github" revision="lineage-19.1" />
+  <project name="K9100ii/android_hardware_samsung_slsi-linaro_graphics" path="hardware/samsung_slsi-linaro/graphics" remote="github" revision="lineage-19.1" />
+  <project name="K9100ii/android_hardware_samsung_slsi-linaro_openmax" path="hardware/samsung_slsi-linaro/openmax" remote="github" revision="lineage-19.1" />
+
+  <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" revision="lineage-19.1" />
+</manifest>
