@@ -40,6 +40,12 @@
   <!-- Contains a patch bringing back legacy FunctionFS support for ADB - REQUIRED -->
   <remove-project name="LineageOS/android_packages_modules_adb" />
   <project name="K9100ii/android_packages_modules_adb" path="packages/modules/adb" remote="github" revision="lineage-19.1-ultralegacy" />
+
+  <!-- Contains a patch switching the default memory allocator to jemalloc for improved performance - OPTIONAL -->
+  <remove-project name="platform/external/jemalloc_new" />
+  <remove-project name="LineageOS/android_bionic" />
+  <project name="LineageOS-UL/android_external_jemalloc_new" path="external/jemalloc_new" remote="github" revision="lineage-19.1" />
+  <project name="LineageOS-UL/android_bionic" path="bionic" remote="github" revision="lineage-19.1" />
   <!-- END OF FORKS -->
 
   <!-- Open source aptX and aptX HD encoders -->
